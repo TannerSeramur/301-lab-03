@@ -62,7 +62,8 @@ const renderAllHorns = () => {
         // $element.attr('class', `${this.keyword} ${this.hornClass}`);
         // console.log(element);
     })
-    addKeyword(allHorns);
+    // addKeyword(allHorns);
+    // addDropdown();
 }
 
 
@@ -79,6 +80,7 @@ let readJson = (page) => {
 
 readJson('1');
 readJson('2');
+addDropdown();
 
 
 
@@ -104,7 +106,10 @@ $('#all').on('click', function(){
 
 });
 
+function addDropdown(){
+    $('select').append('<option> Filter by Name </option>');
 
+}
 
 
 
@@ -131,20 +136,23 @@ function addKeyword(arr){
 
 $('.select').on('change', handleFilter);
 
-
-
-function handleFilter (event){
-    event.preventDefault();
-    $('div').hide();
-    var selectedValue = $('option:selected').val();
-
-//add a loop to check each element
-    allHorns.forEach(element => {
-         if(selectedValue === element.keyword){
-            $(`div.${selectedValue}`).show();
-         }
-    })
+function handleFilter(event){
+    
 }
+
+
+// function handleFilter (event){
+//     event.preventDefault();
+//     $('div').hide();
+//     var selectedValue = $('option:selected').val();
+
+// //add a loop to check each element
+//     allHorns.forEach(element => {
+//          if(selectedValue === element.keyword){
+//             $(`div.${selectedValue}`).show();
+//          }
+//     })
+// }
 
 
 // $('#page-1').on('click', function(){
