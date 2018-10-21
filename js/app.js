@@ -110,19 +110,7 @@ function filterKeywords(){
     }
 }
 
-function loadPage(arr){
-    readJson();
-    addKeyword(arr);
-    showPage();
-}
-
- loadPage(allHorns);
-
-
-
-
-
-  function registerListeners() {
+function registerListeners() {
     $('form').on('change','input',  sortImages);
 
     function sortImages () {
@@ -144,6 +132,14 @@ function loadPage(arr){
        
      }
   }
-  
 
-  
+function loadPage(arr){
+    readJson();
+    addKeyword(arr);
+    showPage();
+}
+
+ loadPage(allHorns);
+
+
+
