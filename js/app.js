@@ -51,6 +51,7 @@ let readJson = () => {
         renderAllHorns();
         addKeyword(allHorns,keywords)
         filterKeywords();
+        registerListeners();
         
     });    
 }
@@ -108,6 +109,29 @@ function filterKeywords(){
         }
     }
 }
+
+function registerListeners() {
+    $('form').on('change','input',  sortImages);
+
+    function sortImages () {
+        console.log('hi');
+       let sortType = $(this).data('sortby');
+       console.log(sortType);
+   
+       allHorns.sort((a,b) => {
+         let flag = 0;
+         if(a[sortType] > b[sortType]){
+           flag = 1;
+         } else if( a[sortType] < b[sortType]){
+           flag = -1;
+         }
+         return flag
+       })
+       $('section').remove();
+       renderAllHorns();
+       
+     }
+  }
 
 function loadPage(arr){
     readJson();
